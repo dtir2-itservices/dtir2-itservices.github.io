@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTI - IT Services</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light gray background like Google Forms */
+            font-family: Arial, sans-serif; /* Use a common sans-serif font */
+        }
+        
+        .container {
+            background-color: #fff; /* White container like Google Forms */
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+            padding: 20px;
+        }
+        
+        h2 {
+            color: #4285f4; /* Google blue color for headings */
+        }
+        
+        .form-control {
+            border: 1px solid #ccc; /* Light gray border for form controls */
+        }
+        
+        .btn-primary {
+            background-color: #4285f4; /* Google blue color for buttons */
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #357ae8; /* Darker blue on hover */
+        }
+        
+        select.form-control {
+            width: 100%; /* Make selects fill the container */
+        }
+        
+        .officeForm {
+            margin-top: 20px;
+            display: none;
+        }
+        
+/*         .logo {
+            position: absolute;
+            top: 0; /* Place the logo at the top of the page */
+            left: 0; /* Place the logo at the left of the page */
+            width: 200px; /* Set the width of the logo to make it smaller */
+            height: auto; /* Maintain aspect ratio */
+            margin: 10px; /* Add margin for spacing */
+        } */
+
+        .footer {
+        background-color: #FFFFFF; /* Background color for the footer */
+        text-align: center; /* Center align the content */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 0; /* Add padding for spacing */
+    }
+        .footer-message {
+        color: #000000; /* Text color for the message */
+        margin: 0; /* Remove default margins */
+    }
+
+    @media (max-width: 768px) {
+        .logo {
+            width: 80px; /* Adjust the width for smaller screens */
+        }
+    }
+
+    .pst-time {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 15px;
+            color: #333;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+
+<!--    <a href="https://justmejay.github.io" > <img src="dti.png" alt="Your Logo" class="logo"> </a>
+ -->
+    <div class="container mt-5">
+        <h2 style="text-align: center;" >Department of Trade and Industry Region 2 </h2>
+        <h2 style="text-align: center;" >IT Services</h2>
+        <select id="officeSelector" class="form-control">
+            <option value="default">Select an Office</option>
+            <option value="regional">Regional Office</option>
+            <option value="batanes">Provincial Office - Batanes</option>
+            <option value="cagayan">Provincial Office - Cagayan</option>
+            <option value="isabela">Provincial Office - Isabela</option>
+            <option value="quirino">Provincial Office - Quirino</option>
+            <option value="nuevaVizcaya">Provincial Office - Nueva Vizcaya</option>
+        </select>
+
+        <!-- Forms for each selection -->
+        <div id="regionalOfficeForm" class="mt-3 officeForm" style="display: none;">
+            <h4>Regional Office</h4>
+            <form>
+                <div class="form-group">
+                    <label for="regionalDropdown">Select an option:</label>
+                    <select id="regionalDropdown" class="form-control">
+                        <option value="RO-ORD">RO-ORD</option>
+                        <option value="RO-SMEDD">RO-SMEDD</option>
+                        <option value="RO-CPD">RO-CPD</option>
+                        <option value="RO-IDD">RO-IDD</option>
+                        <option value="RO-AFMD">RO-AFMD</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="additionalDropdown">Additional Option:</label>
+                    <select id="additionalDropdown" class="form-control">
+                        <option value="ZoomScheduling">Zoom Scheduling</option>
+                        <option value="ITHelpdesk">IT Helpdesk</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="regionalSubmitButton">Submit</button>
+            </form>
+        </div>
+
+        <div id="batanesOfficeForm" class="mt-3 officeForm" style="display: none;">
+            <h4>Provincial Office - Batanes</h4>
+            <form>
+                <div class="form-group">
+                    <label for="batanesDropdown">Select an option:</label>
+                    <select id="batanesDropdown" class="form-control">
+                        <option value="ZoomScheduling">Zoom Scheduling</option>
+                        <option value="ITHelpdesk">IT Helpdesk</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="batanesSubmitButton">Submit</button>
+            </form>
+        </div>
+        <div id="cagayanOfficeForm" class="mt-3 officeForm" style="display: none;">
+            <h4>Provincial Office - Cagayan</h4>
+            <form>
+                <div class="form-group">
+                    <label for="cagayanDropdown">Select an option:</label>
+                    <select id="cagayanDropdown" class="form-control">
+                        <option value="ZoomScheduling">Zoom Scheduling</option>
+                        <option value="ITHelpdesk">IT Helpdesk</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="cagayanSubmitButton">Submit</button>
+            </form>
+        </div>
+        <div id="isabelaOfficeForm" class="mt-3 officeForm" style="display: none;">
+            <h4>Provincial Office - Isabela</h4>
+            <form>
+                <div class="form-group">
+                    <label for="isabelaDropdown">Select an option:</label>
+                    <select id="isabelaDropdown" class="form-control">
+                        <option value="ZoomScheduling">Zoom Scheduling</option>
+                        <option value="ITHelpdesk">IT Helpdesk</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="isabelaSubmitButton">Submit</button>
+            </form>
+        </div>
+        <div id="quirinoOfficeForm" class="mt-3 officeForm" style="display: none;">
+            <h4>Provincial Office - Quirino</h4>
+            <form>
+                <div class="form-group">
+                    <label for="quirinoDropdown">Select an option:</label>
+                    <select id="quirinoDropdown" class="form-control">
+                        <option value="ZoomScheduling">Zoom Scheduling</option>
+                        <option value="ITHelpdesk">IT Helpdesk</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="quirinoSubmitButton">Submit</button>
+            </form>
+        </div>
+        <div id="nuevaVizcayaOfficeForm" class="mt-3 officeForm" style="display: none;">
+            <h4>Provincial Office - Nueva Vizcaya</h4>
+            <form>
+                <div class="form-group">
+                    <label for="nuevaVizcayaDropdown">Select an option:</label>
+                    <select id="nuevaVizcayaDropdown" class="form-control">
+                        <option value="ZoomScheduling">Zoom Scheduling</option>
+                        <option value="ITHelpdesk">IT Helpdesk</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="nuevaVizcayaSubmitButton">Submit</button>
+            </form>
+        </div>
+
+        <!-- Include other forms with similar styling -->
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+$(document).ready(function() {
+                $('#officeSelector').change(function() {
+                    // Hide all form sections
+                    $('.officeForm').hide();
+
+                    // Show the selected form section
+                    var selectedOption = $(this).val();
+                    if (selectedOption !== 'default') {
+                        $('#' + selectedOption + 'OfficeForm').show();
+                    }
+                });
+
+                // Add click event for submit buttons
+
+                $('#regionalSubmitButton').click(function() {
+                    var regionalOption = $('#regionalDropdown').val();
+                    var additionalOption = $('#additionalDropdown').val();
+                    redirectToURL(regionalOption, additionalOption);
+                });
+
+                $('#batanesSubmitButton').click(function() {
+                    var additionalOption = $('#batanesDropdown').val();
+                    redirectToURL("ProvincialOffice-Batanes", additionalOption);
+                });
+
+                $('#cagayanSubmitButton').click(function() {
+                    var additionalOption = $('#cagayanDropdown').val();
+                    redirectToURL("ProvincialOffice-Cagayan", additionalOption);
+                });
+
+                $('#isabelaSubmitButton').click(function() {
+                    var additionalOption = $('#isabelaDropdown').val();
+                    redirectToURL("ProvincialOffice-Isabela", additionalOption);
+                });
+
+                $('#quirinoSubmitButton').click(function() {
+                    var additionalOption = $('#quirinoDropdown').val();
+                    redirectToURL("ProvincialOffice-Quirino", additionalOption);
+                });
+
+                $('#nuevaVizcayaSubmitButton').click(function() {
+                    var additionalOption = $('#nuevaVizcayaDropdown').val();
+                    redirectToURL("ProvincialOffice-NuevaVizcaya", additionalOption);
+                });
+
+                function redirectToURL(office, additionalOption) {
+                    // Define placeholder URLs
+                    var urls = {
+                        'RO-ORDZoomScheduling': 'https://docs.google.com/forms/d/e/1FAIpQLSdi4mnV3e_RwvkbgDCmSq0k7h3LRg1uNb_gvGCih0C4cBdWNg/viewform?usp=sf_link',
+                        'RO-ORDITHelpdesk': 'https://docs.google.com/forms/d/e/1FAIpQLSe3m9HDcfEb1pgJLeU0-Qhz5-x-q3ap-cNRRpz3lI__iB0TqQ/viewform?usp=sf_link',
+                        'RO-SMEDDZoomScheduling': 'https://docs.google.com/forms/d/e/1FAIpQLSdWU9izi6beZZuONra5gUa6dh65mt476fdSE1rw89VeZ7fDOA/viewform?usp=sf_link',
+                        'RO-SMEDDITHelpdesk': 'https://docs.google.com/forms/d/e/1FAIpQLSf1ex_0FadajknqjpdeHpiGdev6gpbg3DOIBEXAJHeFV_pS4g/viewform?usp=sf_link',
+                        'RO-IDDZoomScheduling': 'https://docs.google.com/forms/d/e/1FAIpQLSfQ4qMyHu2qtN3lTBqxkiCFaj06HrJgRkzTgc5wnF5qPOc0jw/viewform?usp=sf_link',
+                        'RO-IDDITHelpdesk': 'https://docs.google.com/forms/d/e/1FAIpQLSenuaNikXN3MtjXQKCZGOPP-J-3PdEIpfbLZmCoyAEA5I0NFg/viewform?usp=sf_link',
+                        'RO-CPDZoomScheduling': 'https://docs.google.com/forms/d/e/1FAIpQLScCVXpO9-lEELqDJavXswaRxKnWjmOqFVbkjZgVANgcDOnwxw/viewform?usp=sf_link',
+                        'RO-CPDITHelpdesk': 'https://docs.google.com/forms/d/e/1FAIpQLSf8hdlA4v88pjI3IsD3bDdDPIJpFpKp7ALf7cUXUMWxrZ1-Ag/viewform?usp=sf_link',
+                        'RO-AFMDZoomScheduling': 'https://docs.google.com/forms/d/e/1FAIpQLSeNcpzSST8RRCY-fSaQzSBjEkVGjUMop5YIsarermlHk4jshg/viewform?usp=sf_link',
+                        'RO-AFMDITHelpdesk': 'https://docs.google.com/forms/d/e/1FAIpQLSf1GlAc2lxHUsDMi8C-7ZxBW6m3hnathTlfxQBNRhLVTEPJzA/viewform?usp=sf_link',
+                        // Add more URLs based on the regionalDropdown and additionalDropdown options
+
+                        'ProvincialOffice-BatanesZoomScheduling': 'https://docs.google.com/forms/d/e/1FAIpQLSe8KhMJK7v0eXcwi2_oSrRmXoVofbKHyUiSAtoCwRStuVeu9w/viewform?usp=sf_link',
+                        'ProvincialOffice-BatanesITHelpdesk': 'https://docs.google.com/forms/d/e/1FAIpQLSe8KhMJK7v0eXcwi2_oSrRmXoVofbKHyUiSAtoCwRStuVeu9w/viewform?usp=sf_link',
+
+                        'ProvincialOffice-CagayanZoomScheduling': 'https://docs.google.com/forms/d/e/1FAIpQLSdR3hIBj58N6-N-xi17XXLIIHyUfCmIKj5rAz6g5W2yU6LYCQ/viewform?usp=sf_link',
+                        'ProvincialOffice-CagayanITHelpdesk': 'https://docs.google.com/forms/d/e/1FAIpQLSdpZZaCkPPJEx61tqEkLkA2YYaC6E2j2k2mdFE7UTnNIrPiKA/viewform?usp=sf_link',
+
+                        'ProvincialOffice-IsabelaZoomScheduling': 'https://docs.google.com/forms/d/e/1FAIpQLSenbNs4fD2CGYOzWUoXuowqEjS096pfeQWMblNTr84BAW1SiA/viewform?usp=sf_link',
+                        'ProvincialOffice-IsabelaITHelpdesk': 'https://docs.google.com/forms/d/e/1FAIpQLScTC3QzGNszBULr9YSewlqwn3oelC1o2vqVqavQNnAe_wJFpA/viewform?usp=sf_link',
+
+                        'ProvincialOffice-QuirinoZoomScheduling': 'https://docs.google.com/forms/d/e/1FAIpQLSdO4xK-l3Jb1whbvQ9aG5k__uFIL4b3bp9nkTOX-JbcMawT3A/viewform?usp=sf_link',
+                        'ProvincialOffice-QuirinoITHelpdesk': 'https://docs.google.com/forms/d/e/1FAIpQLSewUmN9e1mPX6aBBi3BmWPJrMbez4xqPPZEXhzCemP-FZ3BWQ/viewform?usp=sf_link',
+
+                        'ProvincialOffice-NuevaVizcayaZoomScheduling': 'https://docs.google.com/forms/d/e/1FAIpQLScVfEQmNfKxHtD78Wz3NPS6u5yw978Uv1WpQne1CK3qf53H5g/viewform?usp=sf_link',
+                        'ProvincialOffice-NuevaVizcayaITHelpdesk': 'https://docs.google.com/forms/d/e/1FAIpQLScfgVbdJYCXc1J4LBhJNiJKXPLyVukqLkhCFHO4P6Oyi5Dftw/viewform?usp=sf_link',
+                    };
+
+                    var selectedURL = urls[office + additionalOption];
+                    if (selectedURL) {
+                        window.location.href = selectedURL; // Redirect to the selected URL
+                    }
+                }
+            });
+        </script>   
+
+    <div class="pst-time" id="pst-time"></div>
+
+    <script type="text/javascript" id="gwt-pst">
+        (function(d, eId) {
+            var js, gjs = d.getElementById(eId);
+            js = d.createElement('script'); js.id = 'gwt-pst-jsdk';
+            js.src = "//gwhs.i.gov.ph/pst/gwtpst.js?"+new Date().getTime();
+            gjs.parentNode.insertBefore(js, gjs);
+        }(document, 'gwt-pst'));
+        </script>
+
+
+        
+        <div class="footer">
+            <p class="footer-message">This form is <b>highly confidential</b> and should be used for <b>internal transactions</b> only!</p>
+        </div>
+</body>
+</html>
